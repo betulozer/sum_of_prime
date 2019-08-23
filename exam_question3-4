@@ -1,0 +1,3 @@
+*user_name = RequestData(100)
+for username in user_name.get_login():
+    print(username.get('username'))
