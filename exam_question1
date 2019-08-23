@@ -1,6 +1,6 @@
 *Requestdata classı: 'https://randomuser.me/api/'
 url'ine istek atılmakta ve class içindeki metotlar ve decoratorler kullanılarak
-işlemler sağlanmıştır.
+istenen işlemler sağlanır.
 
 *def __init__() fonksiyonu ilk istek alındığında randomuser sitesine istek 
 gönderilerek count sayısında user verisi alınır.
