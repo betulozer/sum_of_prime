@@ -8,7 +8,7 @@ gönderilerek count sayısında user verisi alınır.
 init fonksiyonu class tan ilk nesne oluşturulduğunda çalıştırılır.
 
 *_make_request(self) fonksiyonu ise yine randomuser sitesine  istek atmak için 
-geliştirilmiştir, @errorhandler decoratorune girerek bu süreçteki hata kontrolü
+geliştirilmiştir, fonksiyon @errorhandler decoratorune gönderilerek bu süreçteki hata kontrolü
 yapılır.
 
 *get_location(self) fonksiyonu(metodu), url e istek gönderme işini yapmaktadır.
