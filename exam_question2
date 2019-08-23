@@ -56,7 +56,8 @@ def error_handler(func: Callable) -> Callable:
    return wrapper
 ​
 soruda kullanılan error_handler decoratoru requestte error yakalamak için geliştirilmiş, makerequest fonksiyonundan dönen r
-esponse değerine göre response'u json formatına çevirip resultları almaktadır.
+esponse değerine göre response'u json formatına çevirip resultları almakta ardından 
+dictionary veri tipinde dönmektedir.
 
 
 def converter(func:Callable) -> Callable:
@@ -66,5 +67,5 @@ def converter(func:Callable) -> Callable:
    return wrapper
    
 yine soruda kullanılan converter decoratoru ise, kendisine parametre olarak gönderilen fonksiyonların response listelerini 
-dictionary olarak döndürmektedir.
+döndürmektedir.
 
