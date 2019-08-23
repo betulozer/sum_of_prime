@@ -39,3 +39,32 @@ print(say_hi())
 kodunda ise ilk satırda lambda fonksiyonuyla bir decorator tanımlanmış, ardından def say_hi() fonksiyonunun üzerine gerekli
 satır yazılarak fonksiyon decoratore parametre olarak gönderilmiştir.
 
+question:
+
+import requests
+from typing import Callable, Generator
+​
+​
+def error_handler(func: Callable) -> Callable:
+   def wrapper(*args, **kwargs) -> dict:
+       results=None
+       response = func(*args, **kwargs)
+       if response.ok:
+           response = response.json()
+           results = response.get('results')
+       return results
+   return wrapper
+​
+soruda kullanılan error_handler decoratoru requestte error yakalamak için geliştirilmiş, makerequest fonksiyonundan dönen r
+esponse değerine göre response'u json formatına çevirip resultları almaktadır.
+
+
+def converter(func:Callable) -> Callable:
+   def wrapper(*args, **kwargs) -> dict:
+       response = func(*args, **kwargs)
+       return list(response)
+   return wrapper
+   
+yine soruda kullanılan converter decoratoru ise, kendisine parametre olarak gönderilen fonksiyonların response listelerini 
+dictionary olarak döndürmektedir.
+
