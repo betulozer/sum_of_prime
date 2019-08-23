@@ -1,0 +1,20 @@
+*Requestdata classı: 'https://randomuser.me/api/'
+url'ine istek atılmakta ve class içindeki metotlar ve decoratorler kullanılarak
+işlemler sağlanmıştır.
+
+*def __init__() fonksiyonu ilk istek alındığında randomuser sitesine istek 
+gönderilerek count sayısında user verisi alınır.
+
+init fonksiyonu class tan ilk nesne oluşturulduğunda çalıştırılır.
+
+*_make_request(self) fonksiyonu ise yine randomuser sitesine  istek atmak için 
+geliştirilmiştir, @errorhandler decoratorune girerek bu süreçteki hata kontrolü
+yapılır.
+
+*get_location(self) fonksiyonu(metodu), url e istek gönderme işini yapmaktadır.
+bu işi  make_request fonksiyonunu ve @converter decoratorunu kullanarak yapmaktadır.
+istek sonucu dönen location lar yield ile return edilir.
+
+*get_login(self) metodu ise get_location gibi make_request i siteye istek göndermek 
+için kullanıp yine @converter decoratoruyle dönen değeri listeye çevirmektedir, 
+bu metotta da yine yield metoduyla login verileri return edilir.
