@@ -1,0 +1,41 @@
+decoratörler, fonksiyonları belli işlemlerden geiçirmek için kullanılan özel fonksiyonlardır. saf yani işlenmemiş haldeki
+fonksiyonu alır ve geri dönüş değeri olarak fonksiyonun istenen işlemlerden geçmiş halini verir. kullanımı ise; @decorator 
+satırının decorator e sokulmak istenen fonksiyonun üzerine yazılmasıyla olur.
+örnek olarak;
+
+import functools
+
+kod1
+def lowercase(func):
+    @functools.wraps(func)
+    def wrapper():
+        return func().lower()
+    return wrapper
+
+
+@lowercase
+def lower():
+    """Say hello"""
+    return "Hello world!"
+
+
+print(lower.__name__)
+print(lower.__doc__)
+
+kodunda tanımlanan lowercase decoratoru def lower fonksiyonunu parametre olarak alıp, işlemiştir.
+decorator içinde kullanılan wrapper ise bir kapsayıcı iç fonksiyon görevi üstlenir, bu wrapper ile esas fonsiyondan gelen
+parametreler yakalanarak istenen işlemler yapılır.
+
+
+
+kod2
+a=(lambda f: lambda *args, **kwargs: (f(*args, **kwargs), f(*args, **kwargs)))
+@a
+def say_hi(): 
+	return 'hi universe!'
+
+print(say_hi())
+
+kodunda ise ilk satırda lambda fonksiyonuyla bir decorator tanımlanmış, ardından def say_hi() fonksiyonunun üzerine gerekli
+satır yazılarak fonksiyon decoratore parametre olarak gönderilmiştir.
+
