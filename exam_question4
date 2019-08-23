@@ -1,0 +1,3 @@
+user_location = RequestData(20)
+for location in user_location.get_location():
+    print(location.get('street'))
